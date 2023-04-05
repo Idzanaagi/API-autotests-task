@@ -1,5 +1,7 @@
 package api;
 
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -8,17 +10,20 @@ import pojo.limitItems.ResponseData;
 import static io.restassured.RestAssured.given;
 
 public class CheckListTestCase {
-    private final String URL = "https://pokeapi.co/api/v2/ability/";
-    private final Integer limitItemsCount = 5;
+    public Integer limitItemsCount = 5;
+    RequestSpecification requestSpec = new RequestSpecBuilder()
+            .setBaseUri("https://pokeapi.co/api/v2//pokemon/")
+            .addQueryParam("limit", limitItemsCount)
+            .setContentType("ContentType.JSON")
+            .build();
 
     @Test
     @DisplayName("CLR-1, check the list restriction with the query parameter limit")
     public void checkTheListRestriction() {
-        Specifications.installSpecification(Specifications.requestSpecification(URL), Specifications.responseSpecificationOK200());
 
         ResponseData limit = given()
-                .param("limit", limitItemsCount)
                 .when()
+                .spec(requestSpec)
                 .get()
                 .then()
                 .extract().as(ResponseData.class);
@@ -29,11 +34,10 @@ public class CheckListTestCase {
     @Test
     @DisplayName("CLR-2, check if each pokemon has a name on the restricted list")
     public void checkPokemonHasName () {
-        Specifications.installSpecification(Specifications.requestSpecification(URL), Specifications.responseSpecificationOK200());
 
         ResponseData limit = given()
-                .param("limit", limitItemsCount)
                 .when()
+                .spec(requestSpec)
                 .get()
                 .then()
                 .extract().as(ResponseData.class);
