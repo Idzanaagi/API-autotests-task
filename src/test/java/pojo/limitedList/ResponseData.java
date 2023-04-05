@@ -1,4 +1,4 @@
-package pojo.limitItems;
+package pojo.limitedList;
 
 import java.util.List;
 

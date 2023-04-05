@@ -1,4 +1,4 @@
-package pojo.limitItems;
+package pojo.limitedList;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

@@ -8,7 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
 
-import pojo.limitItems.ResponseData;
+import pojo.limitedList.ResponseData;
 
 public class LimitedListTestCase {
     private final Integer limitItemsCount = 5;
