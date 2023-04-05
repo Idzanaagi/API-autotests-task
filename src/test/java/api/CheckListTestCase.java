@@ -1,12 +1,9 @@
 package api;
 
-import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pojo.limitItems.ResponseData;
-
-import java.lang.reflect.Type;
 
 import static io.restassured.RestAssured.given;
 
@@ -24,7 +21,7 @@ public class CheckListTestCase {
                 .when()
                 .get()
                 .then()
-                .extract().as((Type) ResponseData.class);
+                .extract().as(ResponseData.class);
 
         Assertions.assertEquals((int) limitItemsCount, limit.getResults().size());
     }
@@ -39,7 +36,7 @@ public class CheckListTestCase {
                 .when()
                 .get()
                 .then()
-                .extract().as((Type) ResponseData.class);
+                .extract().as(ResponseData.class);
 
         Assertions.assertTrue(limit.getResults().stream().allMatch(x-> x.getName() != null));
     }
