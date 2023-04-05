@@ -17,12 +17,12 @@ public class CheckListTestCase {
     @Test
     @DisplayName("CLR-1, check the list restriction with the query parameter limit")
     public void checkTheListRestriction() {
+        Specifications.installSpecification(Specifications.requestSpecification(URL), Specifications.responseSpecificationOK200());
 
         ResponseData limit = given()
                 .param("limit", limitItemsCount)
                 .when()
-                .contentType(ContentType.JSON)
-                .get(URL)
+                .get()
                 .then()
                 .extract().as((Type) ResponseData.class);
 
@@ -32,12 +32,12 @@ public class CheckListTestCase {
     @Test
     @DisplayName("CLR-2, check if each pokemon has a name on the restricted list")
     public void checkPokemonHasName () {
+        Specifications.installSpecification(Specifications.requestSpecification(URL), Specifications.responseSpecificationOK200());
 
         ResponseData limit = given()
                 .param("limit", limitItemsCount)
                 .when()
-                .contentType(ContentType.JSON)
-                .get(URL)
+                .get()
                 .then()
                 .extract().as((Type) ResponseData.class);
 
