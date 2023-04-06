@@ -1,7 +1,5 @@
 package pojo.limitedList;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 public class ResultsItem{
 	public ResultsItem(String name, String url) {
 		this.name = name;
@@ -11,9 +9,7 @@ public class ResultsItem{
 		super();
 	}
 
-	@JsonProperty("name")
 	private String name;
-	@JsonProperty("url")
 	private String url;
 
 	public String getName(){
