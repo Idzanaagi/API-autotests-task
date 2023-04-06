@@ -17,6 +17,7 @@ public class PokemonPropertiesTestCase {
             .setBaseUri("https://pokeapi.co/api/v2/")
             .setContentType(ContentType.JSON)
             .build();
+
     @Test
     @DisplayName("CPC-1, compare pokemon property: weight")
     public void comparePokemonWeight() {
