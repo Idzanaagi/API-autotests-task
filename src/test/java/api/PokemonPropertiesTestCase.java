@@ -8,11 +8,12 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import java.util.List;
 import java.util.stream.Collectors;
-import static io.restassured.RestAssured.given;
 
 import pojo.pokemonProperty.ResponseData;
 
-public class PokemonPropertiesTestCase {
+import helpers.RequestWrapperHelper;
+
+public class PokemonPropertiesTestCase extends RequestWrapperHelper {
 
     RequestSpecification requestSpec = new RequestSpecBuilder()
             .setBaseUri("https://pokeapi.co/api/v2/pokemon/")
@@ -23,18 +24,10 @@ public class PokemonPropertiesTestCase {
     @DisplayName("CPC-1, compare pokemon property: weight")
     public void comparePokemonWeight() {
 
-        ResponseData rattataPokemonData = given()
-                .when()
-                .spec(requestSpec)
-                .get("rattata")
-                .then()
+        ResponseData rattataPokemonData = RequestWrapperHelper.setRequest(requestSpec, "rattata")
                 .extract().as(ResponseData.class);
 
-        ResponseData pidgeottoPokemonData = given()
-                .when()
-                .spec(requestSpec)
-                .get("pidgeotto")
-                .then()
+        ResponseData pidgeottoPokemonData = RequestWrapperHelper.setRequest(requestSpec, "pidgeotto")
                 .extract().as(ResponseData.class);
 
         Assertions.assertTrue(rattataPokemonData.getWeight() < pidgeottoPokemonData.getWeight());
@@ -46,18 +39,10 @@ public class PokemonPropertiesTestCase {
 
         String expectedAbility = "run-away";
 
-        ResponseData rattataPokemonData = given()
-                .when()
-                .spec(requestSpec)
-                .get("rattata")
-                .then()
+        ResponseData rattataPokemonData = RequestWrapperHelper.setRequest(requestSpec, "rattata")
                 .extract().as(ResponseData.class);
 
-        ResponseData pidgeottoPokemonData = given()
-                .when()
-                .spec(requestSpec)
-                .get("pidgeotto")
-                .then()
+        ResponseData pidgeottoPokemonData = RequestWrapperHelper.setRequest(requestSpec, "pidgeotto")
                 .extract().as(ResponseData.class);
 
         List<String> getRattataAbility = rattataPokemonData.getAbilities().stream().map(x -> x.getAbility().getName()).collect(Collectors.toList())
