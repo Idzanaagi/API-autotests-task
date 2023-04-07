@@ -14,7 +14,7 @@ import pojo.pokemonProperty.ResponseData;
 
 public class PokemonPropertiesTestCase {
     RequestSpecification requestSpec = new RequestSpecBuilder()
-            .setBaseUri("https://pokeapi.co/api/v2/")
+            .setBaseUri("https://pokeapi.co/api/v2/pokemon/")
             .setContentType(ContentType.JSON)
             .build();
 
@@ -25,14 +25,14 @@ public class PokemonPropertiesTestCase {
         ResponseData rattataPokemonData = given()
                 .when()
                 .spec(requestSpec)
-                .get("pokemon/rattata")
+                .get("rattata")
                 .then()
                 .extract().as(ResponseData.class);
 
         ResponseData pidgeottoPokemonData = given()
                 .when()
                 .spec(requestSpec)
-                .get("pokemon/pidgeotto")
+                .get("pidgeotto")
                 .then()
                 .extract().as(ResponseData.class);
 
@@ -47,14 +47,14 @@ public class PokemonPropertiesTestCase {
         ResponseData rattataPokemonData = given()
                 .when()
                 .spec(requestSpec)
-                .get("pokemon/rattata")
+                .get("rattata")
                 .then()
                 .extract().as(ResponseData.class);
 
         ResponseData pidgeottoPokemonData = given()
                 .when()
                 .spec(requestSpec)
-                .get("pokemon/pidgeotto")
+                .get("pidgeotto")
                 .then()
                 .extract().as(ResponseData.class);
 
