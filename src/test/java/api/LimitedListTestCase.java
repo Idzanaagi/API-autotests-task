@@ -11,7 +11,9 @@ import static io.restassured.RestAssured.given;
 import pojo.limitedList.ResponseData;
 
 public class LimitedListTestCase {
+
     private final Integer limitItemsCount = 5;
+
     RequestSpecification requestSpec = new RequestSpecBuilder()
             .setBaseUri("https://pokeapi.co/api/v2/pokemon/")
             .addQueryParam("limit", limitItemsCount)

@@ -3,11 +3,14 @@ package pojo.pokemonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
+
 public class Form {
+
     public Form(String name, String url) {
         this.name = name;
         this.url = url;
     }
+
     public Form() {
         super();
     }

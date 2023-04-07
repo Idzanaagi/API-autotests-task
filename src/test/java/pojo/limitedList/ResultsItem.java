@@ -1,10 +1,12 @@
 package pojo.limitedList;
 
-public class ResultsItem{
+public class ResultsItem {
+
 	public ResultsItem(String name, String url) {
 		this.name = name;
 		this.url = url;
 	}
+
 	public ResultsItem() {
 		super();
 	}

@@ -3,12 +3,14 @@ package pojo.limitedList;
 import java.util.List;
 
 public class ResponseData {
+
 	public ResponseData(String next, Object previous, int count, List<ResultsItem> results) {
 		this.next = next;
 		this.previous = previous;
 		this.count = count;
 		this.results = results;
 	}
+
 	public ResponseData() {
 		super();
 	}

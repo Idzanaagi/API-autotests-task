@@ -3,13 +3,16 @@ package pojo.pokemonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Ability extends AbilityItem{
+
+public class Ability extends AbilityItem {
+
     public Ability(String name, String url, Ability ability, boolean is_hidden, int slot) {
         super(name, url);
         this.ability = ability;
         this.is_hidden = is_hidden;
         this.slot = slot;
     }
+
     public Ability() {
         super();
     }

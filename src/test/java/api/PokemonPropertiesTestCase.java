@@ -13,6 +13,7 @@ import static io.restassured.RestAssured.given;
 import pojo.pokemonProperty.ResponseData;
 
 public class PokemonPropertiesTestCase {
+
     RequestSpecification requestSpec = new RequestSpecBuilder()
             .setBaseUri("https://pokeapi.co/api/v2/pokemon/")
             .setContentType(ContentType.JSON)
@@ -42,6 +43,7 @@ public class PokemonPropertiesTestCase {
     @Test
     @DisplayName("CPC-2, compare pokemon property: ability run-away")
     public void comparePokemonAbility() {
+
         String expectedAbility = "run-away";
 
         ResponseData rattataPokemonData = given()
@@ -67,4 +69,5 @@ public class PokemonPropertiesTestCase {
         Assertions.assertTrue(getRattataAbility.size() > 0);
         Assertions.assertEquals(0, getPidgeottoAbility.size());
     }
+
 }
