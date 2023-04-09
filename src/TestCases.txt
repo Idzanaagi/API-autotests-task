@@ -1,0 +1,38 @@
+id: ComparePokemonProperties-1 (CPC-1)
+Заголовок: Сравнить вес покемонов rattata и pidgeotto
+Шаги:
+- сделать get-запрос к https://pokeapi.co/api/v2/pokemon/rattata
+- сделать get-запрос к https://pokeapi.co/api/v2/pokemon/pidgeotto
+- получить и обработать ответы
+- сравнить полученный вес покемонов rattata и pidgeotto
+Ожидаемый результат:
+- у покемона rattata, в отличие от покемона pidgeotto, меньше вес
+
+id: ComparePokemonProperties-2 (CPC-2)
+Заголовок: Сравнить умения покемонов rattata и pidgeotto
+Шаги:
+- сделать get-запрос к https://pokeapi.co/api/v2/pokemon/rattata
+- сделать get-запрос к https://pokeapi.co/api/v2/pokemon/pidgeotto
+- получить и обработать ответы
+- сравнить умения покемонов rattata и pidgeotto
+Ожидаемый результат:
+- у покемона rattata, в отличие от покемона pidgeotto, есть умение run-away
+
+id: CheckTheListRestriction-1 (CLR-1)
+Заголовок: Проверить работу ограничения списка с помощью query-параметра limit
+Шаги:
+- сделать get-запрос к https://pokeapi.co/api/v2/pokemon/
+- передать query-параметр limit со значением 5
+- получить и обработать ответы
+- извлечь количество (размер) айтемов поля results
+Ожидаемый результат:
+- поле results содержит 5 айтемов
+
+id: CheckTheListRestriction-2 (CLR-2)
+Заголовок: Проверить наличие имени у каждого покемона в ограниченном списке
+Шаги:
+- сделать get-запрос к https://pokeapi.co/api/v2/pokemon/
+- передать query-параметр limit со значением 5
+- получить и обработать ответы
+Ожидаемый результат:
+- у каждого покемона в ограниченном списке есть имя (name)
