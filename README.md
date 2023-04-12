@@ -1,18 +1,23 @@
 API-autotests-task
 
-Стек: Java 19, maven, junit5, Rest Assured, Jackson, allure
+Стек: Java 19, maven, junit5, Rest Assured, Jackson, allure, Jenkins
 
-Структура проекта:
-- TestCases.txt - тест-кейсы 
-- src/test/java/api/ - тесты
-- src/test/java/pojo - POJO объекты
+Проект автотестов для тестирования [PokeAPI](https://pokeapi.co/).
 
-Реализовано:
-- подробные тест-кейсы по чек-листу 
-- автотесты
-- отчёты Allure 
-- параллельный запуск тестов 
-- запуск в CI/CD
+Реализованы:
+- [тесты-кейсы](https://github.com/Idzanaagi/API-autotests-task/blob/main/src/TestCases.txt) по чек-листу;
+- [POJO объекты](https://github.com/Idzanaagi/API-autotests-task/tree/main/src/test/java/pojo);
+- сами [автотесты](https://github.com/Idzanaagi/API-autotests-task/tree/main/src/test/java/api); 
+- [хелпер](https://github.com/Idzanaagi/API-autotests-task/blob/main/src/test/java/helpers/RequestWrapperHelper.java), чтобы свести дублирование кода к минимуму;
+- параллельный [запуск](https://github.com/Idzanaagi/API-autotests-task/blob/7903c85fa6c4ea192f2d0ef6965c4615862e790b/pom.xml#L79-L82) тестов;
+- [сборка и прогон тестов](https://github.com/Idzanaagi/API-autotests-task/blob/main/.github/workflows/maven.yml) через GIthub Actions;
+- и сборка, прогон тестов и формирование отчёта Allure в Jenkins, но он локальный, так что ссылоок не будет.
+
+Установка и запуск (windows 11, IntelliJ IDEA):
+- склонировать этот репозиторий;
+- открыть проект в IDE;
+- запустить все тесты (Shift+f10 или mvn clean test);
+- или перейти в test/java/api/, выбрать понравившийся тест и запустить его.
 
 Сформировать отчёт allure (powershell):
 ```
